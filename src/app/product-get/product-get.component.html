@@ -1,0 +1,38 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h2>Product List</h2>
+    </div>
+
+    <div class="panel-body">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>PRODUCTNAME</th>
+                    <th>DESCRIPTION</th>
+                    <th>PRICE</th>
+                    <th>DATE</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let product of products | async ">
+                    <td>{{product.pid}}</td>
+                    <td>{{product.pname}}</td>
+                    <td>{{product.pdesc}}</td>
+                    <td>{{product.price}}</td>
+                    <td>{{product.pdate}}</td>
+
+                    
+
+                    <td><button (click)="deleteProduct(product.pid)"  class="btn btn-danger">Delete</button>
+                        <button  [routerLink]="['/edit',product.pid]" routerLinkActive="active" class="btn btn-info" style="margin-left: 10px">Update</button>
+                        
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+</div>
